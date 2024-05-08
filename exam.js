@@ -32,3 +32,20 @@ function renderQuestion(){
     test.innerHTML+="<button onclick='checkAnswer()'>Submit Answer</button>";
 
 }
+function checkAnswer(){
+    choices=document.getElementsByName("choices");
+    for(var i=0; i<choices.length; i++){
+        if(choices[i].checked){
+            choice=choices[i].value;
+        }
+    }
+    if(choice == questions[pos][4]){
+            correct++;
+        }
+       /* else{
+             
+        }*/
+        pos++;
+        renderQuestion();
+}
+window.addEventListener("load",renderQuestion,false);
